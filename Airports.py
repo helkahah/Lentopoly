@@ -1,6 +1,7 @@
 import mysql.connector
 import math
 import random
+import World
 
 Connection = mysql.connector.connect(
     host="localhost",
@@ -8,7 +9,6 @@ Connection = mysql.connector.connect(
     password=input("Give user password"),
     database="flight_game"
 )
-
 
 Types = {
     "balloonport": ("Balloonport", 1),
@@ -19,19 +19,12 @@ Types = {
     "large_airport": ("International Airport", range(1000,4000))
 }
 
-PlayerData = {
-    "Money": 0,
-    "LoanDept": 0,
-    "Airports": {}
-}
-
 KnownAirports = {}
 
-def NewAirport(Name):
+def New(Name):
     Cursor = Connection.cursor()
     Cursor.execute(f"SELECT type, iso_region, iso_country, continent FROM airport WHERE name = '{Name}'")
     CursorData = Cursor.fetchone()
-    print(CursorData)
 
     Type = Types[CursorData[0]]
     PriceRange = Type[1]
@@ -40,19 +33,17 @@ def NewAirport(Name):
     KnownAirports[Name] = {
         "Name": Name,
         "Price": Price,
-
+        "Region": CursorData[1],
+        "Country": CursorData[2],
+        "Continent": World.Continents[CursorData[3]]
     }
 
     print("New created!")
 
     return KnownAirports[Name]
-def GetAirport(Name):
+
+def Get(Name):
     if Name in KnownAirports:
         return KnownAirports[Name]
     else:
-        return NewAirport(Name)
-
-#print(GetAirportPrice("Total Rf Heliport"))
-
-print(GetAirport("Total Rf Heliport"))
-print(GetAirport("Total Rf Heliport"))
+        return New(Name)
