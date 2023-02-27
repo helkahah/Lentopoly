@@ -1,13 +1,7 @@
 import World
 import Airports
 import GameActions
-
-
-PlayerData = {
-    "Money": 0,
-    "LoanDept": 0,
-    "Airports": {}
-}
+import PlayerData
 
 Cycle = 0
 
@@ -30,11 +24,7 @@ def PromptActions(Actions, *args):
 
     Action = int(input())
 
-    print(GameActions.Actions[CurrentActions[Action]](args))
-
-
-
-    return CurrentActions[Action]
+    return GameActions.Actions[CurrentActions[Action]](args)
 def Menu_Buy():
     print("Test")
 
