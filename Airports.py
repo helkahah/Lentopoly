@@ -15,9 +15,9 @@ Types = {
     "balloonport": ("Balloonport", 1),
     "heliport": ("Heliport", range(40,60)),
     "seaplane_base": ("Seaplane Base", 1),
-    "small_airport": ("Regional Airport", range(40,60)),
-    "medium_airport": ("National Ariport", range(40,60)),
-    "large_airport": ("International Airport", range(1000,4000))
+    "small_airport": ("Regional Airport", range(50,150)),
+    "medium_airport": ("National Ariport", range(100,500)),
+    "large_airport": ("International Airport", range(2000,4000))
 }
 
 KnownAirports = {}
