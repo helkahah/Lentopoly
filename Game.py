@@ -1,6 +1,6 @@
 import World
 import Airports
-
+import GameActions
 
 
 PlayerData = {
@@ -18,7 +18,7 @@ print(Airports.Get("Total Rf Heliport"))
 
 #Menu Functions
 
-def PromptActions(Actions):
+def PromptActions(Actions, *args):
     ActionCount = 1
 
     CurrentActions = {}
@@ -30,7 +30,9 @@ def PromptActions(Actions):
 
     Action = int(input())
 
-    CurrentActions[Action]
+    print(GameActions.Actions[CurrentActions[Action]](args))
+
+
 
     return CurrentActions[Action]
 def Menu_Buy():
