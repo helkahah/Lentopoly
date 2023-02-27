@@ -2,11 +2,12 @@ import mysql.connector
 import math
 import random
 import World
+import DatabaseUser
 
 Connection = mysql.connector.connect(
     host="localhost",
-    user=input("Give server username"),
-    password=input("Give user password"),
+    user=DatabaseUser.Username,
+    password=DatabaseUser.Password,
     database="flight_game"
 )
 
