@@ -1,4 +1,4 @@
-def Execute(Actions):
+def Prompt(Actions, *args):
     while True:
         DisplayActions = {}
 
@@ -16,4 +16,4 @@ def Execute(Actions):
         if ActionFunction == "Stop":
             break
         else:
-            Actions[DisplayActions[SelectedAction]](DisplayActions[SelectedAction])
+            Actions[DisplayActions[SelectedAction]](DisplayActions[SelectedAction], *args)
