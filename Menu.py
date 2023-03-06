@@ -16,4 +16,4 @@ def Execute(Actions):
         if ActionFunction == "Stop":
             break
         else:
-            Actions[DisplayActions[SelectedAction]]()
+            Actions[DisplayActions[SelectedAction]](DisplayActions[SelectedAction])
