@@ -1,3 +1,7 @@
+def Space():
+    for i in range(1,100):
+        print()
+
 def Prompt(Actions, *args):
     while True:
         DisplayActions = {}
@@ -9,7 +13,13 @@ def Prompt(Actions, *args):
             DisplayActions[ActionCount] = Name
             ActionCount += 1
 
-        SelectedAction = int(input())
+
+        Input = input()
+        if not Input:
+            break
+        SelectedAction = int(Input)
+
+        print(SelectedAction)
 
         ActionFunction = Actions[DisplayActions[SelectedAction]]
 
